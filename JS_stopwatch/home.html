@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js stopwatch</title>
+</head>
+
+<body>
+    <h1 class="mainTitle">JS STOPWATCH</h1>
+
+    <span id="num">0</span> <br>
+
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    <button id="reset">Reset</button>
+
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+</body>
+
+</html>
+
+<script>
+    function delay(time) {
+        return new Promise(resolve => setTimeout(resolve, time));
+    }
+
+    function start() {
+        interval = setInterval(increase, 1000)
+    }
+
+    function stop() {
+        clearInterval(interval)
+    }
+
+    function reset() {
+        document.getElementById("num").innerText = 0
+    }
+    function increase() {
+        num = document.getElementById("num").innerText
+        num++
+        document.getElementById("num").innerText = num
+    }
+    document.getElementById("start").addEventListener("click", start)
+    document.getElementById("stop").addEventListener("click", stop)
+    document.getElementById("reset").addEventListener("click", reset)
+</script>
+
+
+<style>
+    body {
+        background-color: #fea600;
+    }
+
+    .mainTitle {
+        text-align: center;
+        font-size: 50px;
+        color: #ff0000;
+    }
+</style>
